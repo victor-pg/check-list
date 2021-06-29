@@ -16,9 +16,10 @@ import {
   Select,
   SelectOption,
   DatePicker,
-  Space
+  Space,
+  Tooltip
 } from "@brizy/ui";
-import {PlusCircle,CalendarFilled,Customers,CustomerDetails,CheckSmall} from '@brizy/ui-icons';
+import {PlusCircle,CalendarFilled,Customers,CustomerDetails,CheckSmall,QuestionCircle} from '@brizy/ui-icons';
 import "./CustomersAdd.css"
 
 const CustomersAdd: React.FC = () => {
@@ -36,6 +37,12 @@ const CustomersAdd: React.FC = () => {
         country:'romania',
         checked:false
     })
+
+    const tooltipContent=()=>{
+        const text = 'This is an option for enabling the customer to login to the store.';
+        const tags = <a href="#">Learn more</a>;
+        return text;
+    };
 
     const handleAdd=(tagName:string)=>{
         const candidate = tags.includes(tagName);
@@ -136,8 +143,12 @@ const CustomersAdd: React.FC = () => {
                 </LayoutSection>
                 <LayoutSection span={8}>
                     <Input.Item label="Login to store">
-                    <Switch checked={formData.checked}  size="default" onChange={e=>setFormData({...formData,checked:e})} />
+                        <Switch checked={formData.checked}  size="default" onChange={e=>setFormData({...formData,checked:e})} />
                     </Input.Item>
+                    <Tooltip title={tooltipContent} rounded={false}> 
+                        <Icon source={QuestionCircle} color="gray-mid" size="16px"/>
+                    </Tooltip>
+                    
                 </LayoutSection>
                 
             </Layout>
