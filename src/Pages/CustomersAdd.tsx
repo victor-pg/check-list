@@ -38,11 +38,12 @@ const CustomersAdd: React.FC = () => {
         checked:false
     })
 
-    const tooltipContent=()=>{
-        const text = 'This is an option for enabling the customer to login to the store.';
-        const tags = <a href="#">Learn more</a>;
-        return text;
-    };
+    const tooltipContent=(
+        <span>Login in store <Tooltip title={<span>This is an option for enabling the customer to login to the store. <a href="https://google.com">Learn more</a></span>} rounded={false}> 
+        <Icon source={QuestionCircle} color="gray-mid" size="16px"/>
+    </Tooltip></span>
+        
+    );
 
     const handleAdd=(tagName:string)=>{
         const candidate = tags.includes(tagName);
@@ -142,13 +143,9 @@ const CustomersAdd: React.FC = () => {
                     </Input.Item>
                 </LayoutSection>
                 <LayoutSection span={8}>
-                    <Input.Item label="Login to store">
+                    <Input.Item label={tooltipContent}>
                         <Switch checked={formData.checked}  size="default" onChange={e=>setFormData({...formData,checked:e})} />
                     </Input.Item>
-                    <Tooltip title={tooltipContent} rounded={false}> 
-                        <Icon source={QuestionCircle} color="gray-mid" size="16px"/>
-                    </Tooltip>
-                    
                 </LayoutSection>
                 
             </Layout>
