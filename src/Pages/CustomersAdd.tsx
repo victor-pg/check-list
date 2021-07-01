@@ -20,12 +20,24 @@ import {
   Tooltip
 } from "@brizy/ui";
 import {PlusCircle,CalendarFilled,Customers,CustomerDetails,CheckSmall,QuestionCircle} from '@brizy/ui-icons';
-import "./CustomersAdd.css"
+
+interface IFormData{
+    firstName:string,
+    lastName:string,
+    email:string,
+    phoneNumber:string,
+    gender:string,
+    birthday:string,
+    adress:string,
+    city:string,
+    country:string,
+    checked:boolean
+}
 
 const CustomersAdd: React.FC = () => {
 
     const [tags,setTags] = useState<string[]>(['Basic','VIP','PRO Plan'])
-    const [formData,setFormData]=useState({
+    const [formData,setFormData]=useState<IFormData>({
         firstName:'',
         lastName:'',
         email:'',
@@ -39,7 +51,7 @@ const CustomersAdd: React.FC = () => {
     })
 
     const tooltipContent=(
-        <span>Login in store <Tooltip title={<span>This is an option for enabling the customer to login to the store. <a href="https://google.com">Learn more</a></span>} rounded={false}> 
+        <span>Login in store <Tooltip title={<span>This is an option for enabling the customer to login to the store. <a href="https://google.com" target="blanc">Learn more</a></span>} rounded={false}> 
         <Icon source={QuestionCircle} color="gray-mid" size="16px"/>
     </Tooltip></span>
         

@@ -10,6 +10,9 @@ const Nav=()=>{
             <li><Link to="/second">SECOND</Link></li>
             <li><Link to="/third">THIRD</Link></li>
             <li><Link to="/customers/add">Customers-Add</Link></li>
+            <li><Link to="/settings/site/sharing">Settings-Site-Sharing</Link></li>
+            <li><Link to="/settings/shop/notifications">Settings-Shop-Notifications</Link></li>
+            <li><Link to="/orders/list">Orders-List</Link></li>
         </ul>
         </>
     );
